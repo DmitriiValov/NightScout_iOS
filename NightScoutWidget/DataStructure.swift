@@ -10,9 +10,12 @@ import Foundation
 
 struct MyData {
     var direction:String = ""
-    var datetime:Double = 0
+    var datetime:Double = 0.0
     var battery:String = ""
-    var bgdelta:Int64 = 0
-    var sgv:String = ""
+    var bgdelta:Float = 0.0
+    var sgv:Float = 0.0
     var trend:Int64 = 0
+    var dateString:String = ""
+    var deltaTime:Int = 0
+    var updatedTime:String = "..."
 }

@@ -11,33 +11,39 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var currenValue: UILabel!
+    @IBOutlet weak var deltaValue: UILabel!
+    @IBOutlet weak var timeValue: UILabel!
+    @IBOutlet weak var batteryValue: UILabel!
+    
     
     @IBAction func updateData(_ sender: UIButton) {
+        self.timeLabel.text = "обновляется..."
+        getInfo() { data in
+            DispatchQueue.main.async {
+                self.statusImage.image = self.getImageForDirection(direction: data.direction)
+                self.currenValue.text = String(format: "%.1f",data.sgv)
+                self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                self.timeValue.text = String(format: "%d min ago",data.deltaTime)
+                self.batteryValue.text = data.battery + "%"
+                self.timeLabel.text = "обновлено: " + data.updatedTime
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timeLabel.text = "обновляется..."
-        
         getInfo() { data in
             DispatchQueue.main.async {
-                print(data.sgv)
-
-                let timeIntervalNow = NSDate().timeIntervalSince1970
-                let deltaTime = (timeIntervalNow - Double(data.datetime)) / 60.0
-                
-                let date = Date(timeIntervalSince1970: TimeInterval(data.datetime))
-                let formatter1 = DateFormatter()
-                formatter1.timeStyle = .medium
-                formatter1.dateStyle = .medium
-                let test = formatter1.string(from: date)
-                
-                let currentDateTime = Date()
-                let formatter = DateFormatter()
-                formatter.timeStyle = .medium
-                formatter.dateStyle = .none
-                self.timeLabel.text = "обновлено: " + formatter.string(from: currentDateTime)
+                self.statusImage.image = self.getImageForDirection(direction: data.direction)
+                self.currenValue.text = String(format: "%.1f",data.sgv)
+                self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                self.timeValue.text = String(format: "%d min ago",data.deltaTime)
+                self.batteryValue.text = data.battery + "%"
+                self.timeLabel.text = "обновлено: " + data.updatedTime
             }
         }
     }
@@ -55,6 +61,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         completionHandler(NCUpdateResult.newData)
+    }
+    
+    func getImageForDirection(direction: String) -> UIImage {
+        var image:UIImage?
+        switch direction {
+        case "SingleDown":
+            image = UIImage(named:"down")
+        case "DoubleDown":
+            image = UIImage(named:"down2")
+        case "SingleUp":
+            image = UIImage(named:"up")
+        case "DoubleUp":
+            image = UIImage(named:"down")
+        case "FortyFiveDown":
+            image = UIImage(named:"rightdown")
+        case "FortyFiveUp":
+            image = UIImage(named:"rightup")
+        case "Flat":
+            image = UIImage(named:"right")
+        default:
+            image = UIImage(named:"flat")
+        }
+        return image!
     }
     
     func getInfo(completion: @escaping (MyData) -> ()) {
@@ -75,9 +104,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                             data.direction = item["direction"]! as! String
                             data.datetime = Double(item["datetime"]! as! Int64) / 1000.0
                             data.battery = item["battery"]! as! String
-                            data.bgdelta = item["bgdelta"]! as! Int64
-                            data.sgv = item["sgv"]! as! String
+                            data.bgdelta = Float(item["bgdelta"]! as! Int64) / 18.0
+                            data.sgv = Float(item["sgv"]! as! String)! / 18.0
                             data.trend = item["trend"]! as! Int64
+
+                            //Time since last data from device
+                            let timeIntervalNow = NSDate().timeIntervalSince1970
+                            data.deltaTime = Int((timeIntervalNow - Double(data.datetime)) / 60.0)
+                            
+                            //Time when data was updated
+                            let currentDateTime = Date()
+                            let formatter = DateFormatter()
+                            formatter.timeStyle = .medium
+                            formatter.dateStyle = .none
+                            data.updatedTime = formatter.string(from: currentDateTime)
+                            
+                            //Date as String for last data
+                            let dateAsDate = Date(timeIntervalSince1970: TimeInterval(data.datetime))
+                            formatter.timeStyle = .medium
+                            formatter.dateStyle = .medium
+                            data.dateString = formatter.string(from: dateAsDate)
+                            
                             completion(data)
                         }
                     }
