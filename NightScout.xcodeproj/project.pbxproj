@@ -14,6 +14,12 @@
 		D105500520465E1400660035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D105500320465E1400660035 /* LaunchScreen.storyboard */; };
 		D105501020465E1400660035 /* NightScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105500F20465E1400660035 /* NightScoutTests.swift */; };
 		D105501B20465E1500660035 /* NightScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105501A20465E1500660035 /* NightScoutUITests.swift */; };
+		D105502F20465EA400660035 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D105502E20465EA400660035 /* NotificationCenter.framework */; };
+		D105503220465EA400660035 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105503120465EA400660035 /* TodayViewController.swift */; };
+		D105503520465EA400660035 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D105503320465EA400660035 /* MainInterface.storyboard */; };
+		D105503920465EA400660035 /* NightScoutWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D105502C20465EA400660035 /* NightScoutWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D105503E2046616A00660035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D105500120465E1400660035 /* Assets.xcassets */; };
+		D105504020466F2200660035 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105503F20466F2200660035 /* DataStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +37,28 @@
 			remoteGlobalIDString = D1054FF620465E1400660035;
 			remoteInfo = NightScout;
 		};
+		D105503720465EA400660035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1054FEF20465E1400660035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D105502B20465EA400660035;
+			remoteInfo = NightScoutWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D105503D20465EA400660035 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D105503920465EA400660035 /* NightScoutWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D1054FF720465E1400660035 /* NightScout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightScout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +74,12 @@
 		D105501620465E1500660035 /* NightScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D105501A20465E1500660035 /* NightScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightScoutUITests.swift; sourceTree = "<group>"; };
 		D105501C20465E1500660035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D105502C20465EA400660035 /* NightScoutWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NightScoutWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D105502E20465EA400660035 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		D105503120465EA400660035 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		D105503420465EA400660035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		D105503620465EA400660035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D105503F20466F2200660035 /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +104,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D105502920465EA400660035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D105502F20465EA400660035 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +121,8 @@
 				D1054FF920465E1400660035 /* NightScout */,
 				D105500E20465E1400660035 /* NightScoutTests */,
 				D105501920465E1500660035 /* NightScoutUITests */,
+				D105503020465EA400660035 /* NightScoutWidget */,
+				D105502D20465EA400660035 /* Frameworks */,
 				D1054FF820465E1400660035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +133,7 @@
 				D1054FF720465E1400660035 /* NightScout.app */,
 				D105500B20465E1400660035 /* NightScoutTests.xctest */,
 				D105501620465E1500660035 /* NightScoutUITests.xctest */,
+				D105502C20465EA400660035 /* NightScoutWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +169,25 @@
 			path = NightScoutUITests;
 			sourceTree = "<group>";
 		};
+		D105502D20465EA400660035 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D105502E20465EA400660035 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D105503020465EA400660035 /* NightScoutWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D105503120465EA400660035 /* TodayViewController.swift */,
+				D105503320465EA400660035 /* MainInterface.storyboard */,
+				D105503620465EA400660035 /* Info.plist */,
+				D105503F20466F2200660035 /* DataStructure.swift */,
+			);
+			path = NightScoutWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +198,12 @@
 				D1054FF320465E1400660035 /* Sources */,
 				D1054FF420465E1400660035 /* Frameworks */,
 				D1054FF520465E1400660035 /* Resources */,
+				D105503D20465EA400660035 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D105503820465EA400660035 /* PBXTargetDependency */,
 			);
 			name = NightScout;
 			productName = NightScout;
@@ -181,6 +246,23 @@
 			productReference = D105501620465E1500660035 /* NightScoutUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D105502B20465EA400660035 /* NightScoutWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D105503A20465EA400660035 /* Build configuration list for PBXNativeTarget "NightScoutWidget" */;
+			buildPhases = (
+				D105502820465EA400660035 /* Sources */,
+				D105502920465EA400660035 /* Frameworks */,
+				D105502A20465EA400660035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NightScoutWidget;
+			productName = NightScoutWidget;
+			productReference = D105502C20465EA400660035 /* NightScoutWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +287,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = D1054FF620465E1400660035;
 					};
+					D105502B20465EA400660035 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = D1054FF220465E1400660035 /* Build configuration list for PBXProject "NightScout" */;
@@ -223,6 +309,7 @@
 				D1054FF620465E1400660035 /* NightScout */,
 				D105500A20465E1400660035 /* NightScoutTests */,
 				D105501520465E1500660035 /* NightScoutUITests */,
+				D105502B20465EA400660035 /* NightScoutWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +336,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D105502A20465EA400660035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D105503E2046616A00660035 /* Assets.xcassets in Resources */,
+				D105503520465EA400660035 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +376,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D105502820465EA400660035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D105503220465EA400660035 /* TodayViewController.swift in Sources */,
+				D105504020466F2200660035 /* DataStructure.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,6 +397,11 @@
 			isa = PBXTargetDependency;
 			target = D1054FF620465E1400660035 /* NightScout */;
 			targetProxy = D105501720465E1500660035 /* PBXContainerItemProxy */;
+		};
+		D105503820465EA400660035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D105502B20465EA400660035 /* NightScoutWidget */;
+			targetProxy = D105503720465EA400660035 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -310,6 +420,14 @@
 				D105500420465E1400660035 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D105503320465EA400660035 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D105503420465EA400660035 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -425,6 +543,7 @@
 		D105502020465E1500660035 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8MC3WYRL49;
@@ -440,6 +559,7 @@
 		D105502120465E1500660035 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8MC3WYRL49;
@@ -518,6 +638,36 @@
 			};
 			name = Release;
 		};
+		D105503B20465EA400660035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MC3WYRL49;
+				INFOPLIST_FILE = NightScoutWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prolev.NightScout.NightScoutWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D105503C20465EA400660035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8MC3WYRL49;
+				INFOPLIST_FILE = NightScoutWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prolev.NightScout.NightScoutWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +703,15 @@
 			buildConfigurations = (
 				D105502620465E1500660035 /* Debug */,
 				D105502720465E1500660035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D105503A20465EA400660035 /* Build configuration list for PBXNativeTarget "NightScoutWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D105503B20465EA400660035 /* Debug */,
+				D105503C20465EA400660035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
