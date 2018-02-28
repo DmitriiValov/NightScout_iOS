@@ -25,7 +25,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             DispatchQueue.main.async {
                 self.statusImage.image = self.getImageForDirection(direction: data.direction)
                 self.currenValue.text = String(format: "%.1f",data.sgv)
-                self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                if data.bgdelta >= 0 {
+                    self.deltaValue.text = String(format: "+%.1f",data.bgdelta)
+                }
+                else {
+                    self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                }
                 self.timeValue.text = String(format: "%d min ago",data.deltaTime)
                 self.batteryValue.text = data.battery + "%"
                 self.timeLabel.text = "обновлено: " + data.updatedTime
@@ -35,12 +40,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.statusImage.image = UIImage(named:"flat")
+        self.currenValue.text = "..."
+        self.deltaValue.text = "..."
+        self.timeValue.text = "..."
+        self.batteryValue.text = "..."
         self.timeLabel.text = "обновляется..."
+        
         getInfo() { data in
             DispatchQueue.main.async {
                 self.statusImage.image = self.getImageForDirection(direction: data.direction)
                 self.currenValue.text = String(format: "%.1f",data.sgv)
-                self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                if data.bgdelta >= 0 {
+                    self.deltaValue.text = String(format: "+%.1f",data.bgdelta)
+                }
+                else {
+                    self.deltaValue.text = String(format: "%.1f",data.bgdelta)
+                }
                 self.timeValue.text = String(format: "%d min ago",data.deltaTime)
                 self.batteryValue.text = data.battery + "%"
                 self.timeLabel.text = "обновлено: " + data.updatedTime
