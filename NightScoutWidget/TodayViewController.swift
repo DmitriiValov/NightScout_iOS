@@ -89,7 +89,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         case "SingleUp":
             image = UIImage(named:"up")
         case "DoubleUp":
-            image = UIImage(named:"down")
+            image = UIImage(named:"up2")
         case "FortyFiveDown":
             image = UIImage(named:"rightdown")
         case "FortyFiveUp":
